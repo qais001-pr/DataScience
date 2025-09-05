@@ -35,7 +35,8 @@ The [Sentiment140 dataset][http://help.sentiment140.com/for-students](https://ww
 Only these two columns are used in this project.
 
 ---
-
+## Presentation 
+- [Download Presentation (PPTX)](data/slides.pptx)
 ## 🚀 How to Run
 
 ### 1. Clone the Repository
