@@ -1,6 +1,6 @@
 # 🧠 Sentiment Analysis on Tweets using PySpark (TF-IDF + Logistic Regression)
 
-This project implements a sentiment analysis pipeline using PySpark on the [Sentiment140 dataset]([http://help.sentiment140.com/for-students](https://www.kaggle.com/datasets/kazanova/sentiment140)). It classifies tweets as *positive* or *negative* based on their textual content using *TF-IDF features* and *Logistic Regression*.
+This project implements a sentiment analysis pipeline using PySpark on the [Sentiment140 dataset][http://help.sentiment140.com/for-students](https://www.kaggle.com/datasets/kazanova/sentiment140). It classifies tweets as *positive* or *negative* based on their textual content using *TF-IDF features* and *Logistic Regression*.
 
 ---
 
