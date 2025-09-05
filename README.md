@@ -33,6 +33,8 @@ The project uses the **MovieLens small dataset (100k ratings)** which contains:
 ---
 
 ## ⚡ Getting Started
+### 📊 Presentation
+[Download Presentation (PPTX) ](docs/slides.pptx)
 
 ### 1. Clone the Repository
 ```bash
