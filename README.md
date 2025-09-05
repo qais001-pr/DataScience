@@ -27,7 +27,7 @@ This project implements a sentiment analysis pipeline using PySpark on the [Sent
 
 ## 📂 Dataset Format
 
-The [Sentiment140 dataset]([http://help.sentiment140.com/for-students](https://www.kaggle.com/datasets/kazanova/sentiment140)) is a CSV file with no headers. Relevant columns:
+The [Sentiment140 dataset][http://help.sentiment140.com/for-students](https://www.kaggle.com/datasets/kazanova/sentiment140)is a CSV file with no headers. Relevant columns:
 
 - _c0: Sentiment label (0 = negative, 4 = positive)
 - _c5: Tweet text
