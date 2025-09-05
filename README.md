@@ -33,6 +33,6 @@ The project uses the **MovieLens small dataset (100k ratings)** which contains:
 ---
 
 ## ⚡ Getting Started
-
+```bash
 ### 1. Clone the Repository
 git clone https://github.com/qais001-pr/Data-Science-Projects-Movie-Recommendation-System.git
