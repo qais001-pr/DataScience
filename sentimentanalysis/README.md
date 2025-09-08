@@ -43,3 +43,7 @@ Only these two columns are used in this project.
 
 ```bash
 git clone [https://github.com/yourusername/sentiment-analysis-pyspark.git](https://github.com/Faizi0952112/Sentiment-Analysis-on-Tweets.git)
+
+### 2. How to run 
+```bash
+python /home/user/<name>/script.py hdfs:///<filepath>
