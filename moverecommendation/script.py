@@ -2,7 +2,7 @@
 # coding: utf-8
 
 """
-MovieLens Recommender with ALS (Spark MLlib) — Ratings Only
+MovieLens Recommender with ALS (Spark MLlib) - Ratings Only
 
 Usage:
     python script.py <ratings_path> <movies_path>
