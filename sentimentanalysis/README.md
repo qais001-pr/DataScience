@@ -21,7 +21,7 @@ This project implements a sentiment analysis pipeline using PySpark on the [Sent
 
 - Apache Spark (PySpark)  
 - Python 3.x  
-- Jupyter Notebook or `.py` script  
+- `.py` script  
 
 ---
 
