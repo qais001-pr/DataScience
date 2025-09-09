@@ -63,7 +63,7 @@ git clone [https://github.com/yourusername/sentiment-analysis-pyspark.git](https
 spark-submit
 --master yarn
 --deploy-mode cluster  
---archives hdfs:///user/faiz/myenv.tar.gz#environment
+--archives hdfs:///user/<name>/myenv.tar.gz#environment
 --conf spark.pyspark.python=environment/bin/python
 --conf spark.pyspark.driver.python=environment/bin/python
 script.py hdfs:///<filepath>
