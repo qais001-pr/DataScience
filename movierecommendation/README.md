@@ -39,7 +39,7 @@ The project uses the **MovieLens small dataset (100k ratings)** which contains:
 ```bash
 git clone https://github.com/qais001-pr/Data-Science-Projects-Movie-Recommendation-System.git
 ```
-### 2. Locate The Folder
+### 2. Locate this folder
 ```bash
 cd movierecommendation
 ```
