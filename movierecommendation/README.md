@@ -21,7 +21,9 @@ It uses the [MovieLens dataset](https://www.kaggle.com/datasets/aigamer/movie-le
 - **MovieLens Dataset (100k ratings)**  
 
 ---
-
+## Libraries 
+- PySpark
+---
 ## 📂 Dataset
 The project uses the **MovieLens small dataset (100k ratings)** which contains:  
 
