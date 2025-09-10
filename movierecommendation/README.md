@@ -35,11 +35,24 @@ The project uses the **MovieLens small dataset (100k ratings)** which contains:
 ## ⚡ Getting Started
 ### 📊 Presentation
 [Download Presentation (PPTX) ](docs/slides.pptx)
-
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/qais001-pr/Data-Science-Projects-Movie-Recommendation-System.git
 ```
-### 2. Run this Command
+### 2. Locate The Folder
 ```bash
-python /home/usr/<name>/script.py hdfs:///<filePath> hdfs:///<filePath>
+cd movierecommendation
+```
+### 2. Run this Command
+
+```bash
+spark-submit \
+--master yarn \
+--deploy-mode cluster \
+--archives hdfs:///user/qais/myenv.tar.gz#environment \
+--conf spark.pyspark.python=environment/bin/python\
+--conf spark.pyspark.driver.python=environment/bin/python\
+srcipt.py\
+hdfs:///<filePath> \
+hdfs:///<filePath>
+```
