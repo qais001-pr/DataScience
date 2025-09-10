@@ -1,71 +1,84 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Sentiment Analysis with PySpark
-# ## Using TF-IDF and Logistic Regression
-
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, when
+from pyspark.ml.feature import Tokenizer, StopWordsRemover, HashingTF, IDF
+from pyspark.ml.classification import LogisticRegression
+from pyspark.ml import Pipeline
+from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator
 import sys
+
 
 def main():
     if len(sys.argv) != 2:
-        print("Usage: python script.py <path_to_csv>")
+        print("Usage: python script.py <input_path>")
         sys.exit(1)
 
-    sentiment_tweets = sys.argv[1]
+    input_path = sys.argv[1]
+    output_path = "hdfs:///user/faiz/sentiment_output"
 
-    # 1. Initialize Spark Session
-    spark = SparkSession.builder \
-        .appName("SentimentAnalysisTFIDF") \
-        .getOrCreate()
+    # 1. Spark session
+    spark = SparkSession.builder.appName("SentimentAnalysis").getOrCreate()
 
-    # 2. Load and Preprocess Data
-    df_raw = spark.read.csv(sentiment_tweets, header=False)
-    df_raw.show(5)
+    # 2. Read dataset (no header in Sentiment140)
+    df_raw = spark.read.csv(input_path, header=False)
 
-    # Select label and tweet text
-    df = df_raw.select(col("_c0").alias("label"), col("_c5").alias("tweet"))
+    # Select relevant columns: _c0 = label, _c5 = tweet
+    df = df_raw.select(
+        col("_c0").cast("int").alias("label"),
+        col("_c5").alias("tweet")
+    )
 
-    # Convert labels: 0 -> 0 (negative), 4 -> 1 (positive)
+    # Convert labels: 0 ? 0 (negative), 4 ? 1 (positive)
     df = df.withColumn("label", when(col("label") == 4, 1).otherwise(0))
 
-    # 3. Text Processing Pipeline
-    from pyspark.ml.feature import Tokenizer, StopWordsRemover, HashingTF, IDF
-    from pyspark.ml.classification import LogisticRegression
-    from pyspark.ml import Pipeline
+    # Drop null/empty tweets
+    df = df.filter(col("tweet").isNotNull())
 
+    print("Sample data:")
+    df.show(5, truncate=False)
+
+    # 3. Text preprocessing pipeline
     tokenizer = Tokenizer(inputCol="tweet", outputCol="words")
     remover = StopWordsRemover(inputCol="words", outputCol="filtered")
     hashingTF = HashingTF(inputCol="filtered", outputCol="rawFeatures", numFeatures=10000)
     idf = IDF(inputCol="rawFeatures", outputCol="features")
-    lr = LogisticRegression(featuresCol="features", labelCol="label")
+    lr = LogisticRegression(maxIter=10, regParam=0.001, featuresCol="features", labelCol="label")
 
     pipeline = Pipeline(stages=[tokenizer, remover, hashingTF, idf, lr])
 
-    # 4. Train-Test Split
-    train_df, test_df = df.randomSplit([0.8, 0.2], seed=42)
+    # 4. Train-test split
+    train, test = df.randomSplit([0.8, 0.2], seed=42)
 
-    # 5. Train the Model
-    model = pipeline.fit(train_df)
+    # 5. Model training
+    model = pipeline.fit(train)
 
-    # 6. Make Predictions
-    predictions = model.transform(test_df)
+    # 6. Prediction
+    predictions = model.transform(test)
 
-    # 7. Evaluate the Model
-    from pyspark.ml.evaluation import BinaryClassificationEvaluator
-    evaluator = BinaryClassificationEvaluator(
-        rawPredictionCol="rawPrediction",
-        labelCol="label"
-    )
-    accuracy = evaluator.evaluate(predictions)
-    print(f"Test Accuracy: {accuracy:.4f}")
+    # 7. Evaluation (Accuracy + more metrics)
+    evaluator = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction")
 
-    # 8. Predict on Sample Tweets
-    predictions.select("tweet", "label", "prediction").show(truncate=False)
+    accuracy = evaluator.setMetricName("accuracy").evaluate(predictions)
+    precision = evaluator.setMetricName("weightedPrecision").evaluate(predictions)
+    recall = evaluator.setMetricName("weightedRecall").evaluate(predictions)
+    f1 = evaluator.setMetricName("f1").evaluate(predictions)
+
+    print("\n=== Evaluation Metrics ===")
+    print(f"Accuracy  : {accuracy:.4f}")
+    print(f"Precision : {precision:.4f}")
+    print(f"Recall    : {recall:.4f}")
+    print(f"F1 Score  : {f1:.4f}")
+
+    # 8. Save results (prediction + actual label)
+    predictions.select("tweet", "label", "prediction") \
+        .write.mode("overwrite").csv(output_path, header=True)
+
+    print(f"\nResults saved to: {output_path}")
 
     spark.stop()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
