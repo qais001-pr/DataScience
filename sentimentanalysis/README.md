@@ -50,13 +50,13 @@ matplotlib   # optional, for visualizations
 seaborn      # optional, for visualizations
 ```
 ## Presentation 
-- [Download Presentation (PPTX)](data/slides.pptx)
+- [Download Presentation (PPTX)](data/Sentiment-Analysis-of-Tweets-with-PySpark.pptx)
 ## 🚀 How to Run
 
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/yourusername/sentiment-analysis-pyspark.git](https://github.com/Faizi0952112/Sentiment-Analysis-on-Tweets.git)
+git clone [https://github.com/yourusername/sentiment-analysis-pyspark.git](https://github.com/Faizi0952112/DataScience-Projects.git)
 ```
 ### 2. How to run in virtual enviroment
 ```bash

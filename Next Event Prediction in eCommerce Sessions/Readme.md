@@ -52,3 +52,27 @@ The goal is to model user behavior in an eCommerce store and improve understandi
 - Example output:  
   ```text
   Test Accuracy = 0.72
+## Libraries / Dependencies
+
+The following libraries are required to run this project:
+
+- **pyspark** 
+- **sys** 
+
+
+## Presentation 
+- [Download Presentation (PPTX)](data/Next-Event-Prediction-in-eCommerce-Sessions-using-PySpark.pptx)
+### 1. Clone the Repository
+
+```bash
+git clone [https://github.com/yourusername/sentiment-analysis-pyspark.git](https://github.com/Faizi0952112/DataScience-Projects.git)
+```
+### 2. How to run in virtual enviroment
+```bash
+spark-submit
+--master yarn
+--deploy-mode cluster  
+--archives hdfs:///user/<name>/myenv.tar.gz#environment
+--conf spark.pyspark.python=environment/bin/python
+--conf spark.pyspark.driver.python=environment/bin/python
+Event_Script.py hdfs:///<filepath>
