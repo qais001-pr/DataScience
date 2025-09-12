@@ -58,16 +58,12 @@ hdfs dfs -mkdir -p /user/<username>/input
 hdfs dfs -put "/local/path/2020-2025.csv" /user/<username>/input/
 ```
 
-### 2. Run Pyspark in Terminal
 
-``` bash
-pyspark
-```
-
-### 3. Run Spark-Submit With Yarn
+### 2. Run Spark-Submit With Yarn
 ```bash
 spark-submit "<pythonFilePath>" "<dataSetPath>"
 ```
+
 
 
 
