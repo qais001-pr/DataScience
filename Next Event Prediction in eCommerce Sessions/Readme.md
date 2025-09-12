@@ -7,7 +7,7 @@ The goal is to model user behavior in an eCommerce store and improve understandi
 
 ## 📂 Dataset
 - **File:** `2019-Oct.csv`  
-- **Source:** Public eCommerce behavior dataset (multi-category store)  
+- **Source:** [Kaggle – E-Commerce Behavior Data (2019-Oct)](https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store) 
 - **Columns used:**
   - `event_time`: Timestamp of the user action  
   - `event_type`: Type of event (`view`, `cart`, `purchase`)  
