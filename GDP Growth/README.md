@@ -27,13 +27,16 @@ It utilizes historical GDP data (2020–2024) of different countries to predict 
 ## 📂 Dataset
 
 The project uses a custom CSV dataset with the following structure:
+```
 |---------|--------|-----------|----------|---------|---------|---------|
 | Country |  2020  |   2021    |   2022   |   2023  |  2024   |  2025   |
 |---------|--------|-----------|----------|---------|---------|---------|
 | Albania | 15271  | 18086.0   | 19185.0  | 23388.0 | 27259.0 | 28372.0 |
 |---------|--------|-----------|----------|---------|---------|---------|
 
-👉 Example dataset: `2020-2025.csv`
+```
+
+👉 Example dataset: [2020-2025.csv](/dataset/2020-2025.csv)
 
 ---
 
@@ -65,6 +68,7 @@ pyspark
 ```bash
 spark-submit "<pythonFilePath>" "<dataSetPath>"
 ```
+
 
 
 
