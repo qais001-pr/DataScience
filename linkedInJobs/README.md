@@ -17,6 +17,10 @@ This project predicts the **job type** (e.g., Full-time, Part-time, Contract) fr
 
 [1.3M Linkedin Jobs & Skills](https://www.kaggle.com/datasets/asaniczka/1-3m-linkedin-jobs-and-skills-2024?select=linkedin_job_postings.csv) 
 
+## Presentation 
+
+[Download](/linkedInJobs/docs/slides.pptx)
+
 ## 📂 Input Data
 
 - Format: CSV
