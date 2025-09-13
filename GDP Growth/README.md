@@ -61,8 +61,9 @@ hdfs dfs -put "/local/path/2020-2025.csv" /user/<username>/input/
 
 ### 2. Run Spark-Submit With Yarn
 ```bash
-spark-submit "<pythonFilePath>" "<dataSetPath>"
+spark-submit --master yarn --deploy-mode cluster "<pythonFilePath>" "<dataSetPath>"
 ```
+
 
 
 
