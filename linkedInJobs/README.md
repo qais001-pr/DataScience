@@ -48,5 +48,5 @@ spark-submit \
   --num-executors 2 \
   --executor-cores 2 \
   /path/to/linkedInJobs.py \
-  hdfs:///user/qais001/input/linkedInJobs/data.csv
+  hdfs:///<path>
 ```
