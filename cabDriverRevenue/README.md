@@ -52,12 +52,10 @@ The model used is **Linear Regression** from PySpark’s MLlib.
 - Apache Spark (with PySpark)
 - Java 8+
 
-### Install Dependencies
-
-You can install PySpark using pip:
+### Run this in terminal:
 
 ```bash
-pip install pyspark
+spark-submit --master yarn --deploy-mode cluster <filePath> <dataSetPath> 
 
 ```
 ### 
