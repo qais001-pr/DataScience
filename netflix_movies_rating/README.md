@@ -16,6 +16,9 @@ The goal of this project is to recommend movies to users based on historical rat
 - Saving results to HDFS.
 
 ---
+
+## **DataSet**
+  [Netflix Movie Rating](https://www.kaggle.com/datasets/evanschreiner/netflix-movie-ratings)
 ## **Presentation** 
   [Download Here](/netflix_movies_rating/docs/PySpark-ALS-Netflix-Movie-Recommendation-System.pptx)
 
