@@ -38,7 +38,7 @@ The goal of this project is to recommend movies to users based on historical rat
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/qais001-pr/netflix-recommendation.git
+git clone https://github.com/qais001-pr/Data_Science_Projects.git
 ```
 2. Run this Command in Terminal:
 
