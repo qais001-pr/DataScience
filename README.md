@@ -38,5 +38,5 @@ This repository contains multiple data science and machine learning projects tha
 ## 🚀 Getting Started
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/Data_Science_Projects.git
+   git clone https://github.com/qais001-pr/Data_Science_Projects.git
    cd Data_Science_Projects
