@@ -26,4 +26,3 @@ Make sure you have the following installed:
 Install dependencies:
 ```bash
 pip install pyspark tensorflow numpy
-spark-submit --driver-python python3 cats_vs_dogs.py
