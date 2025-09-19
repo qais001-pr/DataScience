@@ -6,7 +6,7 @@ It uses **PySpark** for distributed data handling and **TensorFlow/Keras** for d
 ---
 
 ## 📂 Dataset
-- **Source**: [Kaggle Dogs vs Cats](https://www.kaggle.com/c/dogs-vs-cats)  
+- **Source**: [Kaggle Dogs vs Cats](https://www.kaggle.com/datasets/biaiscience/dogs-vs-cats)  
 - Training images: `/kaggle/input/dogs-vs-cats/train/train`  
 - Testing images: `/kaggle/input/dogs-vs-cats/test/test`  
 - File format: `.jpg`  
