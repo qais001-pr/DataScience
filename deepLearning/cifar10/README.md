@@ -17,7 +17,7 @@ The goal of this project is to build and train a deep learning model that can cl
 - Ship
 - Truck
 
-The dataset consists of **60,000 32x32 color images**, split into 50,000 training and 10,000 testing samples.
+The dataset consists of **60,000 32x32 color images**, split into 40,000 training and 20,000 testing samples.
 
 ---
 
@@ -47,14 +47,13 @@ The dataset consists of **60,000 32x32 color images**, split into 50,000 trainin
 
 ## 📊 Results
 - Model trained for multiple epochs  
-- Achieved validation accuracy ~XX% (replace with your result)  
+- Achieved training accuracy ~92%
 - Plotted training vs. validation accuracy and loss  
 
 ---
 
 ## 🔮 Future Improvements
 - Add **Dropout layers** to reduce overfitting  
-- Use **Transfer Learning** with pre-trained models (e.g., ResNet, VGG16)  
 - Hyperparameter tuning (learning rate, batch size, epochs)  
 
 ---
