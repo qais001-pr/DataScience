@@ -63,5 +63,6 @@ The dataset consists of **60,000 32x32 color images**, split into 50,000 trainin
 ## ▶️ How to Run
 1. Clone the repository:
    ```bash
-   
+   git clone https://github.com/qais001-pr/Data_Science_Projects.git
+   cd deepLearning/cifar10
    ```
