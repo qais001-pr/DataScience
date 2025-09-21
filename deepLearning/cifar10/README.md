@@ -58,8 +58,8 @@ The dataset consists of **60,000 32x32 color images**, split into 50,000 trainin
 - Hyperparameter tuning (learning rate, batch size, epochs)  
 
 ---
-## Presentation
-- [Download](/Data_Science_Projects/deepLearning/cifar10/docs/CIFAR-10-Classification-with-CNNs.pptx)
+## 📊 Presentation
+- [Download Presentation](./docs/CIFAR-10-Classification-with-CNNs.pptx)
 ## ▶️ How to Run
 1. Clone the repository:
    ```bash
