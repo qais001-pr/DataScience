@@ -56,9 +56,9 @@ source env/bin/activate
 ```
 ### 3. Install Dependencies
 - Download Requirement File
-```bash
+
 [Download](/workspaces/DataScience/machineLearning/movierecommendation/docs/requirements.txt) 
-```
+
 
 ```bash
 
