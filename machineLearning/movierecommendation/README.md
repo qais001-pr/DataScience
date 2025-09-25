@@ -81,7 +81,7 @@ pip install -r <reuiqrementFilePath>
 
 ```
 
-### 2. Run this Command
+### 4. Run this Command
 
 ```bash
 spark-submit \
