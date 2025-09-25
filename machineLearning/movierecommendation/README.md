@@ -34,9 +34,32 @@ The project uses the **MovieLens small dataset (100k ratings)** which contains:
 
 ---
 
-## ⚡ Getting Started
 ### 📊 Presentation
-[Download Presentation (PPTX) ](docs/slides.pptx)
+[Download Presentation (PPTX)](docs/slides.pptx)
+
+## ⚙️ Environment Setup
+
+### 1. Create a Virtual Environment
+
+```bash
+python -m venv env
+```
+
+### 2.Activate the Virtual Environment
+- Windows
+```bash
+  env\Scripts\activate
+```
+- Linux
+```bash
+source env/bin/activate
+```
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+
+```
+## ⚡ Getting Started
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/qais001-pr/Data-Science-Projects-Movie-Recommendation-System.git
