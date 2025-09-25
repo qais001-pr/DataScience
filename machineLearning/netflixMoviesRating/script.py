@@ -43,6 +43,10 @@ def main():
     # ------------------- Predictions -------------------
     predictions = model.transform(test)
     predictions_with_movies = predictions.join(movies_df, on="MovieId", how="left")
+    # Save test predictions
+    # Update the file path where you want to save the results
+    predictions_with_movies.write.mode("overwrite").option("header", True) \
+        .csv("hdfs:///user/qais/moviesrating/output/predictions_test")
 
     # ------------------- Evaluation -------------------
     evaluator = RegressionEvaluator(metricName="rmse", labelCol="Rating", predictionCol="prediction")
@@ -54,12 +58,20 @@ def main():
     userRecsExploded = userRecs.withColumn("rec", explode(col("recommendations"))) \
                                .select("CustId", col("rec.MovieId"), col("rec.rating"))
     userRecsWithMovies = userRecsExploded.join(movies_df, on="MovieId", how="left")
+    # Save top 10 user recommendations
+    # Update the file path where you want to save the results
+    userRecsWithMovies.write.mode("overwrite").option("header", True) \
+        .csv("hdfs:///user/qais/moviesrating/output/user_recommendations")
 
     # ------------------- Movie Recommendations -------------------
     movieRecs = model.recommendForAllItems(10)
     movieRecsExploded = movieRecs.withColumn("rec", explode(col("recommendations"))) \
                                  .select("MovieId", col("rec.CustId"), col("rec.rating"))
     movieRecsWithTitles = movieRecsExploded.join(movies_df, on="MovieId", how="left")
+    # Save top 10 movie recommendations
+     # Update the file path where you want to save the results
+    movieRecsWithTitles.write.mode("overwrite").option("header", True) \
+        .csv("hdfs:///user/qais/moviesrating/output/movie_recommendations")
 
     # ------------------- Visualizations -------------------
     # Sample small dataset to Pandas for plotting
@@ -80,7 +92,8 @@ def main():
     plt.ylabel("Frequency")
     local_path = os.path.join(tmp_dir, "ratingDistribution.png")
     plt.savefig(local_path)
-    save_to_hdfs(local_path, "hdfs:///user/qais001/output/netflixPrizeData/ratingDistribution.png")
+     # Update the file path where you want to save the graph
+    save_to_hdfs(local_path, "hdfs:///user/qais/moviesrating/graphs/ratingDistribution.png")
     plt.close()
 
     # 2. RMSE Bar Plot
@@ -90,7 +103,8 @@ def main():
     plt.title("Model Performance (RMSE)")
     local_path = os.path.join(tmp_dir, "modelPerformance.png")
     plt.savefig(local_path)
-    save_to_hdfs(local_path, "hdfs:///user/qais001/output/netflixPrizeData/modelPerformance.png")
+     # Update the file path where you want to save the graph
+    save_to_hdfs(local_path, "hdfs:///user/qais/moviesrating/graphs/modelPerformance.png")
     plt.close()
 
     # 3. Top 10 Recommendations for User 1
@@ -103,7 +117,8 @@ def main():
         plt.gca().invert_yaxis()
         local_path = os.path.join(tmp_dir, "top10User1Recommendations.png")
         plt.savefig(local_path)
-        save_to_hdfs(local_path, "hdfs:///user/qais001/output/netflixPrizeData/top10User1Recommendations.png")
+        # Update the file path where you want to save the graph
+        save_to_hdfs(local_path, "hdfs:///user/qais/moviesrating/graphs/top10User1Recommendations.png")
         plt.close()
 
     # 4. Top 10 Most Rated Movies
@@ -115,12 +130,12 @@ def main():
     plt.gca().invert_yaxis()
     local_path = os.path.join(tmp_dir, "top10MostRatedMovies.png")
     plt.savefig(local_path)
-    save_to_hdfs(local_path, "hdfs:///user/qais001/output/netflixPrizeData/top10MostRatedMovies.png")
+     # Update the file path where you want to save the graph
+    save_to_hdfs(local_path, "hdfs:///user/qais/moviesrating/graphs/top10MostRatedMovies.png")
     plt.close()
 
     print("Graphs saved to HDFS.")
     spark.stop()
-
 
 if __name__ == "__main__":
     main()

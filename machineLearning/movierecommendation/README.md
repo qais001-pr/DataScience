@@ -16,7 +16,7 @@ It uses the [MovieLens dataset](https://www.kaggle.com/datasets/aigamer/movie-le
 ---
 
 ## 🛠️ Tech Stack
-- **Python 3.x**  
+- **Python 3.6.8**  
 - **PySpark** (MLlib, SQL)  
 - **MovieLens Dataset (100k ratings)**  
 
@@ -34,27 +34,62 @@ The project uses the **MovieLens small dataset (100k ratings)** which contains:
 
 ---
 
-## ⚡ Getting Started
 ### 📊 Presentation
-[Download Presentation (PPTX) ](docs/slides.pptx)
+[Download Presentation (PPTX)](docs/slides.pptx)
+
+## ⚙️ Environment Setup
+
+### 1. Create a Virtual Environment
+
+```bash
+python -m venv env
+```
+
+### 2.Activate the Virtual Environment
+- Windows
+```bash
+  env\Scripts\activate
+```
+- Linux
+```bash
+source env/bin/activate
+```
+### 3. Install Dependencies
+- Download Requirement File
+
+[Download](https://github.com/qais001-pr/DataScience/tree/main/machineLearning/movierecommendation/docs) 
+
+
+```bash
+
+# Update the file Path of requirement file  to setup the virtual env
+# File Path Like
+# /workspaces/DataScience/machineLearning/movierecommendation/docs/requirements.txt
+pip install -r <reuiqrementFilePath>
+
+```
+## ⚡ Getting Started
+
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/qais001-pr/Data-Science-Projects-Movie-Recommendation-System.git
 ```
+
 ### 2. Locate this folder
 ```bash
 cd movierecommendation
 ```
+
 ### 2. Run this Command
 
 ```bash
 spark-submit \
 --master yarn \
---deploy-mode cluster \
---archives hdfs:///user/qais/myenv.tar.gz#environment \
---conf spark.pyspark.python=environment/bin/python\
---conf spark.pyspark.driver.python=environment/bin/python\
+--deploy-mode client\ 
+#/home/qais/Desktop/datascience/DataScience/machineLearning/movierecommendation/script.py
 srcipt.py\
-hdfs:///<filePath> \
-hdfs:///<filePath>
+#/user/qais/MovieLens/ratings.csv
+hdfs:///<ratingsFilePath> \
+#/user/qais/MovieLens/movies.csv
+hdfs:///<moviesfilePath>
 ```
