@@ -22,6 +22,8 @@ def main():
     movies_path = sys.argv[2]
 
     # Optional: Output directory
+
+    
     # update the file path where you want to save the results
     output_dir = "hdfs:///user/qais/MovieLens/output"
     os.makedirs(output_dir, exist_ok=True)
