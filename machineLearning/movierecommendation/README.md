@@ -55,19 +55,31 @@ python -m venv env
 source env/bin/activate
 ```
 ### 3. Install Dependencies
+- Download Requirement File
 ```bash
-pip install -r requirements.txt
+[Download](/workspaces/DataScience/machineLearning/movierecommendation/docs/requirements.txt) 
+```
+
+```bash
+
+* Update the file Path of requirement file  to setup the virtual env
+# File Path Like
+# /workspaces/DataScience/machineLearning/movierecommendation/docs/requirements.txt
+pip install -r <reuiqrementFilePath>
 
 ```
 ## ⚡ Getting Started
+
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/qais001-pr/Data-Science-Projects-Movie-Recommendation-System.git
 ```
+
 ### 2. Locate this folder
 ```bash
 cd movierecommendation
 ```
+
 ### 2. Run this Command
 
 ```bash
