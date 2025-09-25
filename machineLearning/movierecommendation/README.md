@@ -16,7 +16,7 @@ It uses the [MovieLens dataset](https://www.kaggle.com/datasets/aigamer/movie-le
 ---
 
 ## 🛠️ Tech Stack
-- **Python 3.x**  
+- **Python 3.6.8**  
 - **PySpark** (MLlib, SQL)  
 - **MovieLens Dataset (100k ratings)**  
 
@@ -50,11 +50,11 @@ cd movierecommendation
 ```bash
 spark-submit \
 --master yarn \
---deploy-mode cluster \
---archives hdfs:///user/qais/myenv.tar.gz#environment \
---conf spark.pyspark.python=environment/bin/python\
---conf spark.pyspark.driver.python=environment/bin/python\
+--deploy-mode client\ 
+#/home/qais/Desktop/datascience/DataScience/machineLearning/movierecommendation/script.py
 srcipt.py\
-hdfs:///<filePath> \
-hdfs:///<filePath>
+#/user/qais/MovieLens/ratings.csv
+hdfs:///<ratingsFilePath> \
+#/user/qais/MovieLens/movies.csv
+hdfs:///<moviesfilePath>
 ```
