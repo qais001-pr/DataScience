@@ -57,7 +57,7 @@ source env/bin/activate
 ### 3. Install Dependencies
 - Download Requirement File
 
-[Download](~/machineLearning/movierecommendation/docs/) 
+[Download](/docs/) 
 
 
 ```bash
