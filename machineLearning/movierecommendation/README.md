@@ -62,7 +62,7 @@ source env/bin/activate
 
 ```bash
 
-* Update the file Path of requirement file  to setup the virtual env
+# Update the file Path of requirement file  to setup the virtual env
 # File Path Like
 # /workspaces/DataScience/machineLearning/movierecommendation/docs/requirements.txt
 pip install -r <reuiqrementFilePath>
