@@ -2,7 +2,7 @@
 # coding: utf-8
 
 """
-MovieLens Recommender with ALS (Spark MLlib) - Ratings Only + Visualization
+MovieLens Recommender with ALS (Spark MLlib) - Ratings Only + Save Results
 """
 
 import sys
@@ -11,6 +11,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, explode
 from pyspark.ml.recommendation import ALS
 from pyspark.ml.evaluation import RegressionEvaluator
+import os
 
 def main():
     if len(sys.argv) != 3:
@@ -19,6 +20,11 @@ def main():
 
     ratings_path = sys.argv[1]
     movies_path = sys.argv[2]
+
+    # Optional: Output directory
+    # update the file path where you want to save the results
+    output_dir = "hdfs:///user/qais/MovieLens/output"
+    os.makedirs(output_dir, exist_ok=True)
 
     spark = (SparkSession.builder
              .appName("MovieLens-ALS")
@@ -41,7 +47,7 @@ def main():
         coldStartStrategy="drop"
     )
 
-    # Cast
+    # Cast types
     train = train.withColumn("userId", col("userId").cast("integer")) \
                  .withColumn("movieId", col("movieId").cast("integer")) \
                  .withColumn("rating", col("rating").cast("float"))
@@ -52,8 +58,11 @@ def main():
 
     model = als.fit(train)
 
+    # Predictions
     predictions = model.transform(test)
+    predictions.coalesce(1).write.mode("overwrite").option("header", "true").csv(os.path.join(output_dir, "predictions"))
 
+    # Evaluation
     evaluator = RegressionEvaluator(
         metricName="rmse",
         labelCol="rating",
@@ -61,24 +70,33 @@ def main():
     )
     rmse = evaluator.evaluate(predictions)
     print(f"Root-mean-square error = {rmse:.3f}")
-    
 
-    # Recommendations (as before)
+    # Save RMSE to text file
+    with open(os.path.join(output_dir, "rmse.txt"), "w") as f:
+        f.write(f"Root-mean-square error = {rmse:.3f}\n")
+
+    # Recommendations
     movies = spark.read.csv(movies_path, header=True, inferSchema=True)
 
+    # User Recommendations
     user_recs = model.recommendForAllUsers(10)
     user_recs_exploded = user_recs.withColumn("rec", explode("recommendations")) \
                                   .select("userId", "rec.movieId", "rec.rating")
     user_recs_with_movies = user_recs_exploded.join(movies, on="movieId")
     print("Sample user recommendations (with movie titles):")
     user_recs_with_movies.show(10, truncate=False)
+    user_recs_with_movies.coalesce(1).write.mode("overwrite").option("header", "true") \
+                          .csv(os.path.join(output_dir, "user_recommendations"))
 
+    # Movie Recommendations
     movie_recs = model.recommendForAllItems(2)
     movie_recs_exploded = movie_recs.withColumn("rec", explode("recommendations")) \
                                     .select("movieId", "rec.userId", "rec.rating")
     movie_recs_with_movies = movie_recs_exploded.join(movies, on="movieId")
     print("Sample movie recommendations (with userIds):")
     movie_recs_with_movies.show(10, truncate=False)
+    movie_recs_with_movies.coalesce(1).write.mode("overwrite").option("header", "true") \
+                            .csv(os.path.join(output_dir, "movie_recommendations"))
 
     spark.stop()
 
