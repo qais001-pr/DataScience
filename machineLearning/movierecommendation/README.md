@@ -54,7 +54,7 @@ cd movierecommendation
 ### 1. Create a Virtual Environment
 
 ```bash
-python -m venv env
+python3.6 -m venv env
 ```
 
 ### 2.Activate the Virtual Environment
