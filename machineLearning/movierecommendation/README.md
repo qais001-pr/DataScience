@@ -37,12 +37,24 @@ The project uses the **MovieLens small dataset (100k ratings)** which contains:
 ### 📊 Presentation
 [Download Presentation (PPTX)](docs/slides.pptx)
 
+## ⚡ Getting Started
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/qais001-pr/Data-Science-Projects-Movie-Recommendation-System.git
+```
+
+### 2. Locate this folder
+```bash
+cd movierecommendation
+```
+
 ## ⚙️ Environment Setup
 
 ### 1. Create a Virtual Environment
 
 ```bash
-python -m venv env
+python3.6 -m venv env
 ```
 
 ### 2.Activate the Virtual Environment
@@ -68,28 +80,18 @@ source env/bin/activate
 pip install -r <reuiqrementFilePath>
 
 ```
-## ⚡ Getting Started
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/qais001-pr/Data-Science-Projects-Movie-Recommendation-System.git
-```
-
-### 2. Locate this folder
-```bash
-cd movierecommendation
-```
-
-### 2. Run this Command
+### 4. Run this Command
 
 ```bash
 spark-submit \
 --master yarn \
 --deploy-mode client\ 
+# Update the file path where you file are located in your cluster or workspace
 #/home/qais/Desktop/datascience/DataScience/machineLearning/movierecommendation/script.py
 srcipt.py\
-#/user/qais/MovieLens/ratings.csv
+#hdfs:///user/qais/MovieLens/ratings.csv
 hdfs:///<ratingsFilePath> \
-#/user/qais/MovieLens/movies.csv
+#hdfs:///user/qais/MovieLens/movies.csv
 hdfs:///<moviesfilePath>
 ```

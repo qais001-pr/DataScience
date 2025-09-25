@@ -25,7 +25,7 @@ The goal of this project is to recommend movies to users based on historical rat
 ---
 ## **Requirements**
 
-- Python 3.x
+- Python 3.6.8
 - PySpark
 - HDFS (for output storage)
 - CSV datasets:
@@ -35,12 +35,50 @@ The goal of this project is to recommend movies to users based on historical rat
 ---
 ## **Setup & Usage**
 
-1. Clone the repository:
+### 1. Clone the repository:
 
 ```bash
 git clone https://github.com/qais001-pr/Data_Science_Projects.git
 ```
-2. Run this Command in Terminal:
+## 2. Locate this folder
+```bash
+cd netflixMoviesRating
+```
+
+
+## ⚙️ Environment Setup
+
+### 1. Create a Virtual Environment
+
+```bash
+python3.6 -m venv env
+```
+
+### 2.Activate the Virtual Environment
+- Windows
+```bash
+  env\Scripts\activate
+```
+- Linux
+```bash
+source env/bin/activate
+```
+### 3. Install Dependencies
+- Download Requirement File
+
+[Download](https://github.com/qais001-pr/DataScience/tree/main/machineLearning/netflixMoviesRating/docs)
+
+
+```bash
+
+# Update the file Path of requirement file  to setup the virtual env
+# File Path Like
+# /workspaces/DataScience/machineLearning/movierecommendation/docs/requirements.txt
+pip install -r <reuiqrementFilePath>
+
+```
+
+### 4. Run this Command in Terminal:
 
 ```bash
 spark-submit \
@@ -48,15 +86,21 @@ spark-submit \
    --deploy-mode client  \
     --driver-memory 4G \
     --executor-memory 4G  \
+    # Update the file path where you file are located in your cluster or workspace
+    #/home/qais/Desktop/dataScience/machinelearning/netflixMovieRating/script.py
     "<pythonScript>"  \
+    #hdfs:///user/qais/MovieLens/Netflix_Prizes_Data.csv
     "hdfs://<userRatingData>" \
+    #hdfs:///user/qais/MovieLens/movies.csv
     "hdfs://<moviesFilePath>" \
 ```
-3. Create Database
+
+### 5. Create Database
 ```bash
 CREATE DATABASE NETFLIX_DATA;
 ```
-4. Use DATABASE and Create Table
+
+### 6. Use DATABASE and Create Table
 ```bash
 Use NETFLIX_DATA
 CREATE TABLE netflix_predictions (
@@ -71,7 +115,9 @@ FIELDS TERMINATED BY ','
 STORED AS TEXTFILE
 TBLPROPERTIES ("skip.header.line.count"="1");
 ```
-5. Store Output Data in hive
+
+### 7. Store Output Data in hive
 ```bash
+  # update the file path of output csv file where you stored the results.
   LOAD DATA INPATH '<Path_CSV_File_From_HDFS>' OVERWRITE INTO TABLE netflix_predictions;
 ```
