@@ -87,10 +87,11 @@ pip install -r <reuiqrementFilePath>
 spark-submit \
 --master yarn \
 --deploy-mode client\ 
+# Update the file path where you file are located in your cluster or workspace
 #/home/qais/Desktop/datascience/DataScience/machineLearning/movierecommendation/script.py
 srcipt.py\
-#/user/qais/MovieLens/ratings.csv
+#hdfs:///user/qais/MovieLens/ratings.csv
 hdfs:///<ratingsFilePath> \
-#/user/qais/MovieLens/movies.csv
+#hdfs:///user/qais/MovieLens/movies.csv
 hdfs:///<moviesfilePath>
 ```
