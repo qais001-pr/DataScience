@@ -18,7 +18,7 @@ It uses **PySpark** for distributed data handling and **TensorFlow/Keras** for d
 
 ## ⚙️ Requirements
 Make sure you have the following installed:
-- Python 3.7+  
+- Python 3.12  
 - PySpark  
 - TensorFlow 2.x  
 - NumPy  
