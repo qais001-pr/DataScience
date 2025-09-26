@@ -18,12 +18,6 @@ It uses **PySpark** for distributed data handling and **TensorFlow/Keras** for d
 
 ## ⚙️ Requirements
 Make sure you have the following installed:
-- Python 3.12  
+- Python   
 - PySpark  
-- TensorFlow 2.x  
-- NumPy  
-
-Install dependencies:
-```bash
-pip install pyspark tensorflow numpy
-spark-submit --driver-python python3 cats_vs_dogs.py
+- TensorFlow
