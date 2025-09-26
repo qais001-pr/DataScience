@@ -6,26 +6,33 @@ This repository contains multiple data science and machine learning projects tha
 
 ## 📂 Projects Overview
 
-### 1. 🚖 Cab Driver Revenue
-- Goal: Predict the revenue of cab drivers based on trips, location, and other features.
-- Techniques: Data preprocessing, regression models, and visualization.
+- Machine Learning
 
-### 2. 💼 LinkedIn Jobs Analysis
-- Goal: Analyze job postings from LinkedIn to identify demand for skills, job roles, and trends.
-- Techniques: Web scraping, exploratory data analysis (EDA), visualization.
-
-### 3. 🎬 Movie Recommendation System
+### 1. Movie Recommendation System
 - Goal: Recommend movies to users based on their preferences and viewing history.
 - Techniques: Collaborative filtering, matrix factorization (ALS), recommendation metrics.
 
-### 4. 🍿 Netflix Movies Rating Prediction
+### 2. Netflix Movies Rating Prediction
 - Goal: Predict Netflix movie ratings using user-item interactions.
 - Techniques: PySpark MLlib, ALS recommendation algorithm, regression evaluation.
 
-### 5. 📝 Sentiment Analysis
+### 3. Sentiment Analysis
 - Goal: Perform sentiment classification (positive/negative/neutral) on text data.
-- Techniques: NLP preprocessing, machine learning classifiers, deep learning models (optional).
+- Techniques: NLP preprocessing, machine learning classifiers.
 
+### 4. Next Event Prediction In Ecommerce Sessions
+- Goal: Predict the next event in an eCommerce session.
+- Techniques: PySpark preprocessing (window, lead, StringIndexer), feature engineering (time, price, event), ML pipeline (RandomForest), evaluated with accuracy.
+
+- Deep Learning
+
+### 1.CIFAR10
+- Goal: Classify CIFAR-10 images using CNNs with high accuracy.
+- Techniques: Data preprocessing, CNN architecture (Conv2D, MaxPooling, Dense), training with Adam optimizer, evaluation with accuracy/loss plots, and improvements via dropout & tuning.
+
+### 2.Cat Vs Dog Image Classifier
+- Goal: Build a scalable PySpark + TensorFlow pipeline for classifying cats vs dogs.
+- Techniques: Distributed image loading & preprocessing with PySpark, CNN-based classification with TensorFlow, evaluation with accuracy/loss metrics, and improvements via augmentation & transfer learning.
 ---
 
 ## ⚙️ Tech Stack

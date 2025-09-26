@@ -58,10 +58,42 @@ The following libraries are required to run this project:
 
 - **pyspark** 
 - **sys** 
+- **python 3.6.8**
 
 
 ## Presentation 
 - [Download Presentation (PPTX)](data/Next-Event-Prediction-in-eCommerce-Sessions-using-PySpark.pptx)
+## ⚙️ Environment Setup
+
+### 1. Create a Virtual Environment
+
+```bash
+python3.6 -m venv env
+```
+
+### 2.Activate the Virtual Environment
+- Windows
+```bash
+  env\Scripts\activate
+```
+- Linux
+```bash
+source env/bin/activate
+```
+### 3. Install Dependencies
+- Download Requirement File
+
+[Download](https://github.com/Faizi0952112/DataScience-Projects/blob/main/machineLearning/NextEventPrediction/data/) 
+
+
+```bash
+
+# Update the file Path of requirement file  to setup the virtual env
+# File Path Like
+# /workspaces/DataScience/machineLearning/movierecommendation/docs/requirements.txt
+pip install -r <reuiqrementFilePath>
+
+```
 ### 1. Clone the Repository
 
 ```bash
