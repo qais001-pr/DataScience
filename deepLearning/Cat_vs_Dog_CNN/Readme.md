@@ -54,7 +54,7 @@ The dataset consists of **25,000 training images** and **12,500 testing images**
 ---
 
 ## 📊 Presentation
-- [Download Presentation](./docs/Cats-vs-Dogs-Classification.pptx)
+- [Download Presentation](https://github.com/Faizi0952112/DataScience-Projects/blob/main/deepLearning/Cat_vs_Dog_CNN/doc/Cats-vs-Dogs-Image-Classification.pptx)
 
 ---
 
