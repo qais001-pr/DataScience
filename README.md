@@ -36,7 +36,7 @@ This repository contains multiple data science and machine learning projects tha
 ---
 
 ## ⚙️ Tech Stack
-- **Languages:** Python, SQL  
+- **Languages:** Python  
 - **Libraries/Frameworks:** Pandas, NumPy, Scikit-learn, TensorFlow/Keras, PySpark, Matplotlib, Seaborn  
 - **Tools:** Jupyter Notebook, Git, Kaggle  
 
