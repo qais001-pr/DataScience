@@ -1,23 +1,36 @@
-# 🐶🐱 Cats vs Dogs Classification (PySpark + TensorFlow)
+# 🐶🐱 Cats vs Dogs Image Classification using CNN
 
-This project trains a **Convolutional Neural Network (CNN)** to classify images of cats and dogs.  
-It uses **PySpark** for distributed data handling and **TensorFlow/Keras** for deep learning model training.
+This repository contains a **Convolutional Neural Network (CNN)** implementation in **TensorFlow/Keras** for classifying images of **cats and dogs**.  
+The project is built to run smoothly on **Google Colab** with GPU support.
 
 ---
 
-## 📂 Dataset
-- **Source**: [Kaggle Dogs vs Cats](https://www.kaggle.com/datasets/biaiscience/dogs-vs-cats)  
-- Training images: `/kaggle/input/dogs-vs-cats/train/train`  
-- Testing images: `/kaggle/input/dogs-vs-cats/test/test`  
-- File format: `.jpg`  
-- Filenames are of the form:  
-  - `cat.1234.jpg` → label = `cat` (0)  
-  - `dog.5678.jpg` → label = `dog` (1)  
+## 📌 Project Overview
+The goal of this project is to build and train a deep learning model that can classify images into **2 categories**:
+- Cat 🐱
+- Dog 🐶
+
+The dataset consists of **25,000 training images** and **12,500 testing images** (JPG format).  
+
+---
+
+## ⚙️ Features
+- Image preprocessing and normalization  
+- CNN model with Conv2D, MaxPooling, Flatten, and Dense layers  
+- Training with accuracy/loss monitoring  
+- Evaluation on the test dataset  
+- Visualization of training vs validation performance  
 
 ---
 
 ## ⚙️ Requirements
 Make sure you have the following installed:
-- Python   
+- Python 3.7+  
 - PySpark  
-- TensorFlow
+- TensorFlow 2.x  
+- NumPy  
+
+Install dependencies:
+```bash
+pip install pyspark tensorflow numpy
+spark-submit --driver-python python3 cats_vs_dogs.py
