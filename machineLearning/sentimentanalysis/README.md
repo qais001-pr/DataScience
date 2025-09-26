@@ -20,7 +20,7 @@ This project implements a sentiment analysis pipeline using PySpark on the [Sent
 ## 🔧 Tech Stack
 
 - Apache Spark (PySpark)  
-- Python 3.x  
+- Python 3.6.8  
 - `.py` script  
 
 ---
@@ -51,7 +51,37 @@ seaborn      # optional, for visualizations
 ```
 ## Presentation 
 - [Download Presentation (PPTX)](data/Sentiment-Analysis-of-Tweets-with-PySpark.pptx)
-## 🚀 How to Run
+## ⚙️ Environment Setup
+
+### 1. Create a Virtual Environment
+
+```bash
+python3.6 -m venv env
+```
+
+### 2.Activate the Virtual Environment
+- Windows
+```bash
+  env\Scripts\activate
+```
+- Linux
+```bash
+source env/bin/activate
+```
+### 3. Install Dependencies
+- Download Requirement File
+
+[Download](https://github.com/Faizi0952112/DataScience-Projects/blob/main/machineLearning/sentimentanalysis/data/) 
+
+
+```bash
+
+# Update the file Path of requirement file  to setup the virtual env
+# File Path Like
+# /workspaces/DataScience/machineLearning/movierecommendation/docs/requirements.txt
+pip install -r <reuiqrementFilePath>
+
+```
 
 ### 1. Clone the Repository
 
@@ -67,3 +97,5 @@ spark-submit
 --conf spark.pyspark.python=environment/bin/python
 --conf spark.pyspark.driver.python=environment/bin/python
 script.py hdfs:///<filepath>
+# /user/faiz/input/Sentiment_Tweets
+
