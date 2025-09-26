@@ -56,8 +56,9 @@ The goal is to model user behavior in an eCommerce store and improve understandi
 
 The following libraries are required to run this project:
 
-- **pyspark 3.6.8** 
+- **pyspark** 
 - **sys** 
+- **python 3.6.8**
 
 
 ## Presentation 
