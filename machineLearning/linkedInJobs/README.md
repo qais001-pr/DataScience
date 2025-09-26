@@ -35,9 +35,52 @@ This project predicts the **job type** (e.g., Full-time, Part-time, Contract) fr
 
 ---
 
-## 🛠️ How to Run
 
-Use the following `spark-submit` command:
+## How to Run
+
+---
+## **Setup & Usage**
+
+### 1. Clone the repository:
+
+```bash
+git clone https://github.com/qais001-pr/Data_Science_Projects.git
+```
+## 2. Locate this folder
+```bash
+cd linkedInJobs
+```
+
+### 🛠 Requirements
+
+- Python 3.6.8
+- Apache Spark (with PySpark)
+- Java 8+
+
+## ⚙️ Environment Setup
+
+### 1. Create a Virtual Environment
+
+```bash
+python3.6 -m venv env
+```
+
+### 2.Activate the Virtual Environment
+- Windows
+```bash
+  env\Scripts\activate
+```
+- Linux
+```bash
+source env/bin/activate
+```
+### 3. Install Dependencies
+- Download Requirement File
+
+[Download](https://github.com/qais001-pr/DataScience/tree/main/machineLearning/linkedInJobs/docs)
+
+
+### Use the following `spark-submit` command in terminal
 
 ```bash
 spark-submit \
@@ -47,6 +90,8 @@ spark-submit \
   --executor-memory 4g \
   --num-executors 2 \
   --executor-cores 2 \
+  #/home/qais/Downloads/DataScience/machineLearning/linkedInJobs/script.py
   /path/to/linkedInJobs.py \
+  #hdfs///user/qais/linkedInJobs/linked.csv
   hdfs:///<path>
 ```
