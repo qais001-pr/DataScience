@@ -46,16 +46,57 @@ The model used is **Linear Regression** from PySpark’s MLlib.
 
 ## How to Run
 
+---
+## **Setup & Usage**
+
+### 1. Clone the repository:
+
+```bash
+git clone https://github.com/qais001-pr/Data_Science_Projects.git
+```
+## 2. Locate this folder
+```bash
+cd cabDriverRevenue
+```
+
 ### 🛠 Requirements
 
-- Python 3.x
+- Python 3.6.8
 - Apache Spark (with PySpark)
 - Java 8+
+
+## ⚙️ Environment Setup
+
+### 1. Create a Virtual Environment
+
+```bash
+python3.6 -m venv env
+```
+
+### 2.Activate the Virtual Environment
+- Windows
+```bash
+  env\Scripts\activate
+```
+- Linux
+```bash
+source env/bin/activate
+```
+### 3. Install Dependencies
+- Download Requirement File
+
+[Download](https://github.com/qais001-pr/DataScience/tree/main/machineLearning/cabDriverRevenue/docs)
+
+
 
 ### Run this in terminal:
 
 ```bash
-spark-submit --master yarn --deploy-mode cluster <filePath> <dataSetPath> 
-
+spark-submit\ 
+--master yarn\
+ --deploy-mode client\
+  #/home/qais/Documents/cabDriverRevenue/script.py 
+  <filePath>\
+  #hdfs:///user/qais/cabDriverRevenue/file.csv
+  <dataSetPath> 
 ```
-### 
