@@ -4,9 +4,9 @@ This repository contains multiple data science and machine learning projects tha
 
 ---
 
-## 📂 Projects Overview
+# 📂 Projects Overview
 
-- Machine Learning
+## Machine Learning
 
 ### 1. Movie Recommendation System
 - Goal: Recommend movies to users based on their preferences and viewing history.
@@ -24,7 +24,7 @@ This repository contains multiple data science and machine learning projects tha
 - Goal: Predict the next event in an eCommerce session.
 - Techniques: PySpark preprocessing (window, lead, StringIndexer), feature engineering (time, price, event), ML pipeline (RandomForest), evaluated with accuracy.
 
-- Deep Learning
+## Deep Learning
 
 ### 1.CIFAR10
 - Goal: Classify CIFAR-10 images using CNNs with high accuracy.
