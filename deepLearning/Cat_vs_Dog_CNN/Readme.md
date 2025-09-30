@@ -23,46 +23,14 @@ The dataset consists of **25,000 training images** and **12,500 testing images**
 
 ---
 
-## 🚀 Technologies Used
-- Python  
-- TensorFlow / Keras  
+## ⚙️ Requirements
+Make sure you have the following installed:
+- Python 3.7+  
+- PySpark  
+- TensorFlow 2.x  
 - NumPy  
-- Matplotlib  
-- Google Colab (GPU recommended)  
 
----
-
-## 🧩 Model Architecture
-- **Conv2D + MaxPooling layers** for feature extraction  
-- **Flatten + Dense layers** for classification  
-- **Sigmoid output layer** for binary classification (Cat vs Dog)  
-
----
-
-## 📊 Results
-- Model trained for multiple epochs  
-- Achieved **~90% accuracy** on test dataset  
-- Accuracy and loss curves plotted for training/validation  
-
----
-
-## 🔮 Future Improvements
-- Add **Data Augmentation** for more robust learning  
-- Introduce **Dropout layers** to reduce overfitting  
-- Hyperparameter tuning (learning rate, batch size, number of epochs)  
-
----
-
-## 📊 Presentation
-- [Download Presentation](https://github.com/Faizi0952112/DataScience-Projects/blob/main/deepLearning/Cat_vs_Dog_CNN/doc/Cats-vs-Dogs-Image-Classification.pptx)
-
----
-
-## ▶️ How to Run (Google Colab)
-
-1. Open [Google Colab](https://colab.research.google.com/).  
-2. Upload the file:  
-   - `cats_vs_dogs_colab.py` (or `.ipynb`)  
-3. Install required dependencies:
-   ```bash
-   !pip install tensorflow numpy matplotlib kaggle
+Install dependencies:
+```bash
+pip install pyspark tensorflow numpy
+spark-submit --driver-python python3 cats_vs_dogs.py
